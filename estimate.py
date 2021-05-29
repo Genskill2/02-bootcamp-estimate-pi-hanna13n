@@ -4,15 +4,14 @@ import random
 
 
 def wallis(n):
-    pi = 1.0
+    p = 1.0
     for i in range(1, n+1):
         m = 4*(i**2)/(4*(i**2)-1)
-        pi *= m
-    return 2*pi
+        p *= m
+    return 2*p
 
 
 def monte_carlo(n):
-    tp = n
     cp = 0
     for i in range(1, n+1):
         x = random.random()
@@ -20,7 +19,7 @@ def monte_carlo(n):
         dist = math.sqrt(x**2+y**2)
         if dist < 1:
             cp += 1
-    return 4*(cp/tp)
+    return 4*(cp/n)
 
 
 class TestWallis(unittest.TestCase):
