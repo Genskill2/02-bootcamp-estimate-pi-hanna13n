@@ -6,9 +6,9 @@ import random
 def wallis(n):
     pi = 1.0
     for i in range(1, n+1):
-        m = 4*(n**2)/(4*(n**2)-1)
+        m = 4*(i**2)/(4*(i**2)-1)
         pi *= m
-    return pi
+    return 2*pi
 
 
 def monte_carlo(n):
@@ -20,7 +20,7 @@ def monte_carlo(n):
         dist = math.sqrt(x**2+y**2)
         if dist < 1:
             cp += 1
-    return 4*(tp/cp)
+    return 4*(cp/tp)
 
 
 class TestWallis(unittest.TestCase):
